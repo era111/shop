@@ -1,0 +1,98 @@
+.payment_modal {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  min-height: 408px;
+  z-index: 1000;
+  border-radius: 16px;
+  background: var(--background-white, #fff);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal_title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+
+  color: var(--text-black, #000);
+
+  /* Сайт/Н3-new */
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.2px;
+}
+
+.exit_icon {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  background-image: url("../../../assets/exit.svg");
+  border: none;
+  cursor: pointer;
+}
+
+.payment_modal_body {
+  display: flex;
+  padding: 0px 22px 123px 22px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.payment_modal_rows_wrap {
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+.payment_modal_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+@media (max-width: 620px) {
+  .payment_modal {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    border-radius: 0;
+    flex-direction: column;
+    height: 100vh;
+    min-width: auto;
+    position: fixed;
+  }
+
+  .modal_footer {
+    margin: auto 0 0;
+  }
+  .modal_title {
+    color: var(--light-system-text, #000);
+
+    /* Мобильный сайт/Н3 */
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
+}

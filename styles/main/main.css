@@ -1,0 +1,169 @@
+body {
+  position: relative;
+  /* min-height: 100vh; */
+  min-height: 320px;
+  background: #6725a8;
+}
+.container {
+  min-height: 100%;
+  padding-bottom: 64px;
+}
+
+main {
+  border-radius: 24px;
+  background: #f6f6fa;
+}
+
+.main_container {
+  max-width: 1400px;
+  margin: auto;
+  border-radius: 24px;
+  display: flex;
+  padding: 0px 24px 16px 24px;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+  background: #f6f6fa;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+  flex: 1 0 0;
+}
+.round {
+  border-radius: 16px;
+}
+.cart {
+  width: 100%;
+  padding-top: 34px;
+}
+.cart h3 {
+  color: var(--text-black, #000);
+  margin: 0 0 26px 0;
+
+  font-family: Segoe UI;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.28px;
+}
+.instock {
+  margin-bottom: 42px;
+}
+.select_all {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  align-self: stretch;
+  margin-bottom: 16px;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  background-image: url(../../assets/arrow_up.svg);
+  cursor: pointer;
+}
+
+.arrow_down {
+  background-image: url(../../assets/arrow_down.svg);
+}
+
+.text {
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+
+  display: flex;
+  height: 24px;
+  padding-bottom: 0px;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
+.select_title {
+  padding-bottom: 3px;
+}
+
+.delivery {
+  padding: 16px 0px 24px 0px;
+  gap: 24px;
+}
+
+@media (max-width: 1150px) {
+  .order {
+    max-width: 65%;
+  }
+  .instock {
+  }
+}
+
+@media (max-width: 1023px) {
+  .order {
+    min-width: 480px;
+  }
+  .instock {
+  }
+}
+
+@media (max-width: 950px) {
+  .main_container {
+    /* width: 100%; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .order {
+    min-width: 100%;
+  }
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 620px) {
+  .main_container {
+    display: flex;
+    /* width: 320px; */
+    padding: 0px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .order {
+    min-width: 100%;
+    gap: 12px;
+  }
+
+  .cart {
+    padding-top: 15px;
+  }
+  .select_all {
+    padding: 0 16px;
+  }
+
+  .card_field_wrap {
+    padding: 0 16px;
+  }
+
+  .card_field {
+    width: 90%;
+  }
+
+  .container {
+    padding-bottom: 120px;
+  }
+}

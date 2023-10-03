@@ -1,0 +1,82 @@
+.input_container {
+  display: flex;
+  height: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1 0 0;
+}
+
+.addresse_row input {
+  width: 100%;
+  height: 27px;
+  border: none;
+  padding: 0;
+  border-bottom: 1px solid #00000033;
+  outline: none;
+
+  align-self: stretch;
+  color: var(--system-gray, #000000);
+
+  /* Сайт/Body */
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.addresse_row input::placeholder {
+  color: var(--system-gray, #9797af);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}
+
+.input_label {
+  align-self: stretch;
+  color: var(--system-gray, #9797af);
+  user-select: none;
+
+  /* color: var(--system-orange, #F55123); */
+  font-family: Segoe UI;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+}
+
+.input_error {
+  color: var(--system-orange, #f55123) !important;
+  border-bottom: 1px solid var(--system-orange, #f55123) !important;
+}
+
+.input_error::placeholder {
+  color: var(--system-orange, #f55123) !important;
+}
+
+
+.inn_description {
+  align-self: stretch;
+  font-family: Segoe UI;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  color: black;
+}
+
+.error_description {
+  color: var(--system-orange, #f55123) !important;
+  font-family: Segoe UI;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+}
+
+.error_lable {
+  margin-top: 5px;
+}

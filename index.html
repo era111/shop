@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина</title>
+    <script defer src="index.js"></script>
+    <script defer src="modals.js"></script>
+    <script defer src="data_logic.js"></script>
+    <script defer src="counter.js"></script>
+    <script defer src="inputs.js"></script>
+    <link rel="stylesheet" href="./styles/main/main.css" />
+    <link rel="stylesheet" href="./styles/common/common.css" />
+    <link
+      rel="stylesheet"
+      href="./styles/main/not_available/not_available.css"
+    />
+    <link rel="stylesheet" href="./styles/main/card/card.css" />
+    <link rel="stylesheet" href="./styles/main/delivery/delivery.css" />
+    <link rel="stylesheet" href="./styles/main/payment/payment.css" />
+    <link rel="stylesheet" href="./styles/main/address/address.css" />
+    <link rel="stylesheet" href="./styles/main/address/input.css" />
+    <link rel="stylesheet" href="./styles/main/total/total.css" />
+    <link
+      rel="stylesheet"
+      href="./styles/main/placing_order/placing_order.css"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="./styles/header/header.css" />
+    <link rel="stylesheet" href="./styles/footer/footer.css" />
+    <link rel="stylesheet" href="./styles/modal/modal.css" />
+    <link rel="stylesheet" href="./styles/modal/payment/payment_modal.css" />
+    <link rel="stylesheet" href="./styles/modal/delivery/delivery_modal.css" />
+    <link rel="stylesheet" href="./styles/main/card/card_mob.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="normal_header">
+        <div class="header">
+          <button class="menu_button"></button>
+          <div class="header_logo">Товары и точка</div>
+        </div>
+        <div class="search">
+          <input class="search_input" placeholder="Я ищу..." type="text" />
+          <button class="search_button"></button>
+        </div>
+        <div class="menu_icons">
+          <button class="profile header_button">
+            <img
+              class="profile_icon"
+              src="./assets/Profile.svg"
+              alt="Профиль"
+            />
+            <span class="profile_text">Профиль</span>
+          </button>
+          <button class="header_button">
+            <img class="cart_icon" src="./assets/Cart.svg" alt="Корзина" />
+            <span class="cart_text">Корзина</span>
+            <span class="cart_count" id="cart_count">3</span>
+          </button>
+        </div>
+      </header>
+      <header class="mobile_header">
+        <div class="header_mobile">
+          <button class="menu_button_mobile"></button>
+          <h1 class="header_logo_mobile">Товары и точка</h1>
+          <button class="search_button"></button>
+        </div>
+      </header>
+
+      <main>
+        <div class="main_container">
+          <div class="order">
+            <section class="cart">
+              <h3>Корзина</h3>
+              <div class="instock">
+                <div class="select_all">
+                  <button
+                    id="select_all"
+                    class="checkbox checkbox_active"
+                    style="display: block"
+                  ></button>
+                  <div class="text">
+                    <div class="select_title">Выбрать все</div>
+                  </div>
+                  <div class="not_available_text" style="display: none">
+                    266 товаров · 2 100 569 сом
+                  </div>
+                  <button class="arrow"></button>
+                </div>
+                <div class="card_field_wrap">
+                  <div
+                    id="card_field"
+                    class="card_field"
+                    style="display: block"
+                  >
+                    <template id="card_element">
+                      <div id="" class="card">
+                        <div class="card_about">
+                          <div class="card_preview">
+                            <button
+                              class="checkbox checkbox_active"
+                              onclick="toggleCheckbox(this)"
+                            ></button>
+                            <div class="card_image"></div>
+                          </div>
+
+                          <div class="card_info">
+                            <div class="card_name"></div>
+                            <div class="info">
+                              <div class="color"></div>
+                              <div class="size"></div>
+                            </div>
+                            <div class="company_about">
+                              <div class="company_store"></div>
+                              <div class="company_text">
+                                <span class="company_text_name"></span>
+
+                                <img
+                                  class="info_icon"
+                                  src="./assets/info.svg"
+                                  alt="Информация"
+                                />
+
+                                <div id="tooltip_info" class="tooltip_info">
+                                  <div class="tooltip_info_body">
+                                    <div class="tooltip_info_row_title">
+                                      OOO «МЕГАПРОФСТИЛЬ»
+                                    </div>
+                                    <div class="tooltip_info_row">
+                                      ОГРН: 5167746237148
+                                    </div>
+                                    <div class="tooltip_info_row">
+                                      129337, Москва, улица Красная Сосна, 2,
+                                      корпус 1, стр. 1, помещение 2, офис 34
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="" class="sum" data-price="">
+                          <div class="actions">
+                            <div class="good_counter">
+                              <div class="btn_layout minus">−</div>
+                              <div class="good_count"></div>
+                              <div class="btn_layout plus">+</div>
+                            </div>
+                            <div class="balance">
+                              Осталось <span class="balance_count"> </span> шт.
+                            </div>
+                            <div class="icons">
+                              <button class="like_icon"></button>
+                              <button class="trash_icon"></button>
+                            </div>
+                          </div>
+                          <div class="cost">
+                            <div class="actual_cost">
+                              <span class="price"></span>сом
+                            </div>
+                            <button class="last_cost">
+                              <span id="last_price" class="last_price"></span>
+
+                              <div
+                                id="tooltip_price"
+                                class="tooltip tooltip_price"
+                              >
+                                <div class="tooltip_column_start">
+                                  <span class="tooltip_sale_name"
+                                    >Скидка 55%</span
+                                  >
+                                  <span class="tooltip_sale_name"
+                                    >Скидка покупателя 10%</span
+                                  >
+                                </div>
+                                <div class="tooltip_column_end">
+                                  <span class="tooltip_scale">−300 сом</span>
+                                  <span class="tooltip_scale">−30 сом</span>
+                                </div>
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+
+                    <template id="card_element_mob">
+                      <div class="card_mob">
+                        <div class="card_about">
+                          <div class="card_preview prewiew_mob">
+                            <button
+                              class="checkbox ckeckbox_mob"
+                              onclick="toggleCheckbox(this)"
+                            ></button>
+                            <div class="card_image"></div>
+                            <div class="size_mob"></div>
+                          </div>
+                          <div class="card_info_mob">
+                            <div class="cost cost_mob">
+                              <div class="actual_cost">
+                                <span class="price"></span>сом
+                              </div>
+                              <button class="last_cost">
+                                <span id="last_price" class="last_price"></span>
+                              </button>
+                            </div>
+                            <div class="card_name"></div>
+                            <div class="color"></div>
+                            <div class="company_store"></div>
+                          </div>
+                        </div>
+                        <div class="sum">
+                          <div class="good_counter">
+                            <div class="btn_layout minus">−</div>
+                            <div class="good_count good_count_mob"></div>
+                            <div class="btn_layout plus">+</div>
+                          </div>
+                          <div class="balance">
+                            Осталось <span class="balance_count"> </span> шт.
+                          </div>
+                          <div class="icons">
+                            <button class="like_icon"></button>
+                            <button class="trash_icon"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <div class="not_available">
+                <div class="not_available_title">
+                  <div class="not_available_text">
+                    <div>Отсутствуют · 3 товара</div>
+                  </div>
+                  <button class="arrow"></button>
+                </div>
+
+                <div
+                  id="not_available_field"
+                  class="not_available_field"
+                  style="display: flex"
+                >
+                  <template id="not_available_card">
+                    <div class="not_available_card">
+                      <div class="not_available_info">
+                        <div class="not_available_image"></div>
+                        <div class="not_available_description">
+                          <div class="not_available_product_name">
+                            Футболка UZcotton мужская
+                          </div>
+                          <div class="not_available_params">
+                            <div class="not_available_color">Цвет: белый</div>
+                            <div class="not_available_size">Размер: 56</div>
+                          </div>
+                        </div>
+                        <div class="not_available_size_mob"></div>
+                      </div>
+                      <div class="not_available_actions_wrap">
+                        <div class="not_available_actions">
+                          <div class="not_available_icons">
+                            <button class="like_icon"></button>
+                            <button class="trash_icon"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </section>
+            <div class="placing_order">
+              <section class="delivery round">
+                <div class="delivery_main">
+                  <div class="delivery_title">
+                    <div class="delivery_title_text">
+                      Способ доставки
+                    </div>
+                    <div onclick="openDeliveryModal()" class="change">
+                      Изменить
+                    </div>
+                  </div>
+                  <div class="delivery_main_info">
+                    <div class="delivery_row">
+                      <div
+                        class="delivery_row_content delivery_row_content_title"
+                      >
+                        Пункт выдачи
+                      </div>
+                      <div class="delivery_row_content">
+                        <div class="delivery_address">
+                          Бишкек, улица Ахматбека Суюмбаева, 12/1
+                        </div>
+                        <div class="delivery_status">
+                          <div class="delivery_rating">
+                            <div class="rating_icon">
+                              <img
+                                src="assets/star_fill.svg"
+                                alt=""
+                                srcset=""
+                              />
+                            </div>
+                            4.99
+                          </div>
+                          <div class="delivery_time">Ежедневно с 10 до 21</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="delivery_row">
+                      <div
+                        class="delivery_row_content delivery_row_content_title"
+                      >
+                        Стоимость доставки
+                      </div>
+                      <div class="delivery_row_content">
+                        <div class="delivery_price">Бесплатно</div>
+                      </div>
+                    </div>
+                    <div class="delivery_row">
+                      <div
+                        class="delivery_row_content delivery_row_content_title"
+                      >
+                        5—6 февраля
+                      </div>
+                      <div class="delivery_row_content">
+                        <div class="delivery_goods">
+                          <div
+                            class="delivery_good_image delivery_good_1"
+                          ></div>
+                          <div class="delivery_good_image delivery_good_2">
+                            <span class="delivery_good_counter">184</span>
+                          </div>
+                          <div class="delivery_good_image delivery_good_3">
+                            <span class="delivery_good_counter">2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="delivery_row">
+                      <div
+                        class="delivery_row_content delivery_row_content_title"
+                      >
+                        7—8 февраля
+                      </div>
+                      <div class="delivery_row_content">
+                        <div class="delivery_goods">
+                          <div class="delivery_good_image delivery_good_2">
+                            <span class="delivery_good_counter">16</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="delivery_return_wrap">
+                  <div class="delivery_return">
+                    <div class="price_icon">
+                      <img src="assets/price_shipping.svg" alt="" srcset="" />
+                    </div>
+                    <div class="delivery_return_text">
+                      <span
+                        >Обратная доставка товаров на склад при отказе —
+                      </span>
+                      <span class="green_text">бесплатно</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="payment round">
+                <div class="payment_title_head">
+                  <div class="payment_title">
+                    <div class="section_title_text">Способ оплаты</div>
+                    <div onclick="openPaymentModal()" class="change">
+                      Изменить
+                    </div>
+                  </div>
+                  <div class="payment_card_wrap">
+                    <div class="payment_card">
+                      <div class="payment_system_icon">
+                        <img
+                          id="payment_system_icon"
+                          src="assets/mir.svg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                      <div class="payment_card_number">
+                        <div id="payment_card_number">1234 56•• •••• 1234</div>
+                        <div>01/30</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment_description">
+                  Спишем оплату с карты при получении
+                </div>
+              </section>
+
+              <section class="addresse round">
+                <div class="addresse_title_head">
+                  <div class="addresse_title">Получатель</div>
+                </div>
+                <div class="addresse_form">
+                  <div class="addresse_row">
+                    <div class="input_container">
+                      <label class="input_label" style="color: white"
+                        >Имя</label
+                      >
+                      <input type="text" class="input_name" placeholder="Имя" />
+                      <label class="error_lable"></label>
+                    </div>
+                    <div class="input_container">
+                      <label class="input_label" style="color: white"
+                        >Фамилия</label
+                      >
+                      <input
+                        type="text"
+                        class="input_second_name"
+                        placeholder="Фамилия"
+                      />
+                      <label class="error_lable"></label>
+                    </div>
+                  </div>
+                  <div class="addresse_row">
+                    <div class="input_container">
+                      <label class="input_label" style="color: white"
+                        >Почта</label
+                      >
+                      <input
+                        id="email"
+                        type="email"
+                        class="input_mail"
+                        placeholder="Почта"
+                      />
+                      <label id="error_email" class="error_lable"></label>
+                    </div>
+                    <div class="input_container">
+                      <label class="input_label" style="color: white"
+                        >Телефон</label
+                      >
+                      <input
+                        id="phone"
+                        type="text"
+                        maxlength="30"
+                        class="input_phone"
+                        placeholder="Телефон"
+                      />
+                      <label id="error_phone" class="error_lable"> </label>
+                    </div>
+                    <div class="input_container">
+                      <label class="input_label" style="color: white"
+                        >ИНН</label
+                      >
+                      <input
+                        id="inn"
+                        type="text"
+                        class="input_inn"
+                        placeholder="ИНН"
+                        maxlength="14"
+                      />
+                      <label class="inn_description error_lable"
+                        >Для таможенного оформления</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="total">
+            <div class="total_container">
+              <div class="total_order_cost">
+                <div class="total_price">
+                  <div class="total_price_title">
+                    <div>Итого</div>
+                    <div>
+                      <span class="total_price_title_text">2 101 063 </span>
+                      <span class="valute">сом</span>
+                    </div>
+                  </div>
+                  <div class="total_price_count">
+                    <div class="total_price_count_row">
+                      <span class="total_price_count_text">203 товара</span
+                      ><span class="total_last_price_result"
+                        >2 302 048 сом</span
+                      >
+                    </div>
+                    <div class="total_price_count_row">
+                      <span>Скидка</span
+                      ><span class="total_sale"> −200 985 сом</span>
+                    </div>
+                    <div class="total_price_count_row">
+                      <span>Доставка</span><span>Бесплатно</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="total_delivery">
+                  <div class="total_delivery_address">
+                    <div class="total_delivery_address_row">
+                      <div class="total_delivery_address_title">
+                        <div>Доставка в пункт выдачи</div>
+                      </div>
+                      <button
+                        onclick="openDeliveryModal()"
+                        class="change_icon"
+                      ></button>
+                    </div>
+                    <div class="total_delivery_address_row">
+                      <div class="total_delivery_address_text">
+                        Бишкек, улица Ахматбека Суюмбаева, 12/1
+                      </div>
+                    </div>
+                    <div class="total_delivery_address_row">
+                      <div class="total_delivery_day">5–8 фев</div>
+                    </div>
+                  </div>
+                  <div class="total_delivery_description">
+                    <div class="price_icon">
+                      <img src="assets/price_shipping.svg" alt="" srcset="" />
+                    </div>
+                    <div class="total_return_text">
+                      Обратная доставка товаров на склад при отказе —
+                      <span>бесплатно</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="total_payment">
+                  <div class="total_payment_user_card">
+                    <div class="total_delivery_address_row">
+                      <div class="total_delivery_address_title">
+                        Оплата картой
+                      </div>
+                      <button
+                        onclick="openPaymentModal()"
+                        class="change_icon"
+                      ></button>
+                    </div>
+                    <div class="payment_card">
+                      <div class="payment_system_icon">
+                        <img
+                          id="total_system_icon"
+                          src="assets/mir.svg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                      <div class="payment_card_number">
+                        <div id="total_card_number">1234 56•• •••• 1234</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="total_checkbox_field">
+                    <div class="total_checkbox_wrap">
+                      <button
+                        id="check_pay"
+                        class="checkbox"
+                        onclick="toggleCheckbox(this)"
+                      ></button>
+                      Списать оплату сразу
+                    </div>
+                    <div>Спишем оплату с карты при получении</div>
+                  </div>
+                </div>
+              </div>
+              <div class="button_field">
+                <div id="button_main" class="button_main">Заказать</div>
+                <div class="agreement">
+                  <div class="agreement_icon">
+                    <img src="assets/check.svg" alt="" srcset="" />
+                  </div>
+                  <div>
+                    Соглашаюсь с
+                    <span>правилами пользования торговой площадкой</span>
+                    и <span>возврата</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="modal" class="modal">
+          <div id="payment_modal" class="payment_modal">
+            <div class="modal_header">
+              <div class="modal_title">Способ оплаты</div>
+              <button onclick="closePaymentModal()" class="exit_icon"></button>
+            </div>
+            <div class="payment_modal_body">
+              <div class="payment_modal_rows_wrap">
+                <div class="payment_modal_row">
+                  <button class="radio radio_checked"></button>
+                  <div class="payment_card">
+                    <div class="payment_system_icon">
+                      <img src="assets/mir.svg" alt="" srcset="" />
+                    </div>
+                    <div class="payment_card_number">
+                      <div>1234 56•• •••• 1234</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment_modal_row">
+                  <button class="radio"></button>
+                  <div class="payment_card">
+                    <div class="payment_system_icon">
+                      <img src="assets/visa.svg" alt="" srcset="" />
+                    </div>
+                    <div class="payment_card_number">
+                      <div>1234 56•• •••• 1234</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment_modal_row">
+                  <button class="radio"></button>
+                  <div class="payment_card">
+                    <div class="payment_system_icon">
+                      <img src="assets/mastercard.svg" alt="" srcset="" />
+                    </div>
+                    <div class="payment_card_number">
+                      <div>1234 56•• •••• 1234</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment_modal_row">
+                  <button class="radio"></button>
+                  <div class="payment_card">
+                    <div class="payment_system_icon">
+                      <img src="assets/maestro.svg" alt="" srcset="" />
+                    </div>
+                    <div class="payment_card_number">
+                      <div>1234 56•• •••• 1234</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal_footer">
+              <div class="modal_apply">
+                <div class="button_main_modal">Выбрать</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="delivery_modal" class="delivery_modal">
+            <div class="modal_header">
+              <div class="modal_title">Способ доставки</div>
+              <button onclick="closeDeliveryModal()" class="exit_icon"></button>
+            </div>
+
+            <div class="delivery_modal_body">
+              <div class="delivery_modal_place">
+                <button class="button_secondary">В пункт выдачи</button>
+                <button class="button_secondary button_secondary_selected">
+                  Курьером
+                </button>
+              </div>
+
+              <div class="delivery_modal_address">
+                <div class="delivery_modal_body_title">Мои адреса</div>
+                <div class="delivery_modal_row">
+                  <div class="icon_wrap">
+                    <button class="radio radio_checked"></button>
+                  </div>
+                  <div class="delivery_modal_address_to">
+                    Бишкек, улица Табышалиева, 57
+                  </div>
+                  <div class="icon_wrap">
+                    <button class="trash_icon"></button>
+                  </div>
+                </div>
+                <div class="delivery_modal_row">
+                  <div class="icon_wrap">
+                    <button class="radio"></button>
+                  </div>
+                  <div class="delivery_modal_address_to">
+                    Бишкек, улица Жукеева-Пудовкина, 77/1
+                  </div>
+                  <div class="icon_wrap">
+                    <button class="trash_icon"></button>
+                  </div>
+                </div>
+                <div class="delivery_modal_row">
+                  <div class="icon_wrap">
+                    <button class="radio"></button>
+                  </div>
+                  <div class="delivery_modal_address_to">
+                    Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1
+                  </div>
+
+                  <div class="icon_wrap">
+                    <button class="trash_icon"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal_footer">
+              <div class="modal_apply">
+                <div class="button_main_modal">Выбрать</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer_normal">
+        <div class="footer__text">© 2022&nbsp&nbspООО «Товары и точка»</div>
+      </footer>
+      <footer class="footer_mobile">
+        <div class="footer_icon">
+          <img src="assets/home.svg" alt="" srcset="" />
+        </div>
+        <div class="footer_icon">
+          <img src="assets/catalog.svg" alt="" srcset="" />
+        </div>
+        <div class="footer_icon">
+          <!-- <img src="assets/c.svg" alt="" srcset="" /> -->
+          <img src="./assets/cart_mob.svg" alt="Корзина" />
+          <span class="cart_count_mob" id="cart_count">3</span>
+        </div>
+        <div class="footer_icon">
+          <img src="assets/favorites.svg" alt="" srcset="" />
+        </div>
+        <div class="footer_icon">
+          <img src="assets/profile_mob.svg" alt="" srcset="" />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

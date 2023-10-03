@@ -1,0 +1,350 @@
+.total {
+  display: flex;
+  width: 429px;
+  padding-bottom: 0px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+
+  /* background: white; */
+}
+
+.total_container {
+  display: flex;
+  width: 381px;
+  padding: 16px 24px 24px 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  margin-top: 21px;
+
+  border-radius: 16px;
+  background: var(--background-white, #fff);
+
+  /* Тени/Итого, Выпадающие списки */
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.total_order_cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  align-self: stretch;
+}
+
+.total_price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.total_price_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+
+  color: var(--text-black, #000);
+
+  /* Сайт/H2-new */
+  font-family: Segoe UI;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.24px;
+}
+
+.valute {
+  color: var(--text-black, #000);
+
+  /* Сайт/Н3-new */
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+}
+.total_price_count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.total_price_count_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.total_price_count_row span {
+  color: var(--text-black, #000);
+
+  /* Сайт/Body */
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.total_delivery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.total_delivery_address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.total_delivery_address_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+
+  color: var(--text-black, #000);
+
+  color: var(--text-black, #000);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+.total_delivery_address_title {
+  flex: 1 0 0;
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+}
+
+.total_delivery_address_text {
+  flex: 1 0 0;
+}
+.change_icon {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  background-image: url("../../../assets/change_icon.svg");
+  border: none;
+  cursor: pointer;
+}
+
+.total_delivery_day {
+  flex: 1 0 0;
+  color: var(--system-magenta, #cb11ab);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+
+.total_delivery_description {
+  display: flex;
+  padding: 8px 8px 12px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--background-smoky, #f6f6fa);
+}
+
+.total_return_text {
+  /* display: flex; */
+  align-items: baseline;
+  /* gap: 4px; */
+
+  color: var(--text-black, #000);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+
+.total_return_text span {
+  color: var(--system-green, #0cb477);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+  border-bottom: 1px dashed #0cb477;
+}
+
+.total_payment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.total_payment_user_card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.total_checkbox_field {
+  display: flex;
+  padding: 8px 8px 12px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--background-smoky, #f6f6fa);
+
+  color: var(--text-black, #000);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+
+.total_checkbox_wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.button_field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  color: var(--text-black, #000);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+
+.agreement span {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.agreement_icon {
+  width: 13px;
+  height: 24px;
+}
+
+#total_card_number {
+  color: var(--text-black, #000);
+  text-align: right;
+
+  /* Сайт/Подпись */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+
+@media (max-width: 1300px) {
+  .total {
+    width: 303px;
+  }
+  .total_container {
+    width: 255px;
+  }
+}
+
+@media (max-width: 950px) {
+  .total {
+    width: 100%;
+  }
+  .total_container {
+    margin-top: 0;
+    min-width: 80%;
+  }
+}
+
+@media (max-width: 620px) {
+  .total_container {
+    box-shadow: none;
+    background: transparent;
+    padding: 0 16px 40px;
+    width: auto;
+  }
+  .total_delivery_address {
+    display: none;
+  }
+  .total_order_cost {
+    gap: 16px;
+  }
+
+  .total_delivery_description {
+    border-radius: 8px;
+    background: var(--system-smoky-dark, #f0ecf4);
+  }
+
+  .total_payment_user_card {
+    display: none;
+  }
+
+  .total_checkbox_field {
+    border-radius: 8px;
+    background: var(--system-smoky-dark, #f0ecf4);
+  }
+  .total_price_title {
+    color: var(--text-black, #000);
+
+    /* Сайт/Н3-new */
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
+}

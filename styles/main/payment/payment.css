@@ -1,0 +1,109 @@
+.payment {
+  display: flex;
+  padding: 16px 24px 24px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 16px;
+  background: var(--background-white, #fff);
+  /* margin: 0 24px; */
+}
+
+.payment_title_head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.payment_title {
+  display: flex;
+  width: 100%;
+  /* flex-direction: column; */
+  align-items: flex-end;
+  /* align-items: flex-start; */
+}
+
+.section_title_text {
+  flex: 1 0 0;
+  color: var(--text-black, #000);
+
+  /* Сайт/H2 */
+  font-family: Segoe UI;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.24px;
+}
+
+.payment_card_wrap {
+  display: flex;
+  width: 590px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.payment_card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment_system_icon {
+  display: flex;
+  width: 32px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: var(--background-smoky, #f6f6fa);
+}
+
+.payment_card_number {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-black, #000);
+
+  /* Сайт/Body */
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.payment_description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+
+  color: var(--system-gray, #9797af);
+
+  /* Сайт/Caption */
+  font-family: Segoe UI;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 123.077% */
+}
+@media (max-width: 620px) {
+  .section_title_text {
+    color: var(--text-black, #000);
+
+    /* Сайт/Н3-new */
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
+}
